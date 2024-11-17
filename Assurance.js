@@ -66,14 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Fonction de validation pour le kilométrage
     function validateMileage() {
         const errorMessage = document.getElementById('mileage-error');
-        nbrMileage = +mileageInput.value  // le + pour convertir le string en numbre
-        console.log("mileageInput: ", mileageInput);
-        console.log("mileageInput: converted by nuber", Number (nbrMileage));
-        console.log("mileageInput: converted by nuber", +nbrMileage);
-        console.log("value of mileageInput: ", mileageInput.value);
-        console.log("string: ", '12');
-        console.log("number: ", 12);
-       
+        nbrMileage = +mileageInput.value  // le + pour convertir le string en numbre  
         if (nbrMileage <= 0) {
             errorMessage.textContent = "Le kilométrage doit être un nombre positif.";
             mileageInput.classList.add("error-outline");
