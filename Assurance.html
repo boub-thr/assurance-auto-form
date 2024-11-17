@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soumission d'Assurance Auto</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Soumission d'Assurance Auto</h1>
+    <form id="insurance-form">
+        <!-- Genre -->
+        <label for="gender">Quel est votre genre ?</label>
+        <select id="gender" name="gender" required>
+            <option value="" disabled selected>Sélectionner votre genre</option>
+            <option value="homme">Homme</option>
+            <option value="femme">Femme</option>
+            <option value="non-binaire">Non-binaire</option>
+        </select>
+
+        <!-- Date de naissance -->
+        <label for="birthdate">Quel est votre date de naissance ?</label>
+        <input type="date" id="birthdate" name="birthdate" required>
+        <div id="birthdate-error" class="error-message"></div> <!-- Message d'erreur -->
+
+
+        <!-- Valeur d'achat du véhicule -->
+        <label for="car-value">Quelle est la valeur d'achat de votre véhicule ?</label>
+        <input type="number" id="car-value" name="car-value" min="0" required>
+        <div id="car-value-error" class="car-value-error"></div> <!-- Message d'erreur -->
+
+        <!-- Année de fabrication du véhicule -->
+        <label for="car-year">Quelle est l'année de fabrication de votre véhicule ?</label>
+        <input type="number" id="car-year" name="car-year" min="1999" max="2024" required>
+        <div id="car-year-error" class="car-year-error"></div> <!-- Message d'erreur -->
+
+        <!-- Kilométrage annuel -->
+        <label for="mileage">Combien de kilomètres parcourez-vous par année ?</label>
+        <input type="number" id="mileage" name="mileage" min="0" required>
+        <div id="mileage-error" class="mileage-error"></div> <!-- Message d'erreur -->
+
+        <!-- Caméra de recul -->
+        <label for="camera">Est-ce que votre véhicule possède une caméra de recul ?</label>
+        <select id="camera" name="camera" required>
+            <option value="" disabled selected>Sélectionner</option>
+            <option value="oui">Oui</option>
+            <option value="non">Non</option>
+        </select>
+
+        <!-- Réclamations d'assurance -->
+        <label for="claims">Avez-vous fait des réclamations d'assurance auto dans les 6 dernières années ?</label>
+        <select id="claims" name="claims" required>
+            <option value="" disabled selected>Sélectionner</option>
+            <option value="oui">Oui</option>
+            <option value="non">Non</option>
+        </select>
+
+        <div id="claim-details" style="display: none">
+            <label for="num-claims">Combien de réclamations avez-vous faites ?</label>
+            <input type="number" id="num-claims" name="num-claims" min="0">
+            <!-- Détails des réclamations seront ajoutés ici en JavaScript -->
+            <div id="claims-list"></div>
+        </div>
+
+        <button type="submit">Calculer le montant d'assurance</button>
+    </form>
+
+    <!-- Affichage du résultat -->
+    <div id="result" style="display: none;">
+        <h2>Résultat de la soumission</h2>
+        <p id="insurance-result"></p>
+    </div>
+</div>
+
+
+
+<script src="Assurance.js"></script>
+</body>
+</html>
