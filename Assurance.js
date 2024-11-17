@@ -19,16 +19,19 @@ document.addEventListener('DOMContentLoaded', function () {
         // Vérifier si la date est dans le futur
         if (birthdate > today) {
             errorMessage.textContent = "La date de naissance ne peut pas être dans le futur.";
+            birthdateInput.classList.add("error-outline");
             return false;
         }
 
         // Vérifier si la date est valide
         if (isNaN(birthdate)) {
             errorMessage.textContent = "Veuillez entrer une date valide.";
+            birthdateInput.classList.add("error-outline");
             return false;
         }
 
         // Si tout est valide, effacer le message d'erreur
+        birthdateInput.classList.remove("error-outline")
         errorMessage.textContent = '';
         return true;
     }
@@ -37,21 +40,25 @@ document.addEventListener('DOMContentLoaded', function () {
         const errorMessage = document.getElementById('car-value-error');
         if (carValueInput.value <= 0) {
             errorMessage.textContent = "La valeur du véhicule doit être positive.";
+            carValueInput.classList.add("error-outline");
             return false;
         }
+        carValueInput.classList.remove("error-outline");
         errorMessage.textContent = '';
         return true;
     }
 
     // Fonction de validation pour l'année du véhicule
     function validateCarYear() {
-        const year = carYearInput.value;
+        const year = +carYearInput.value;
         const currentYear = new Date().getFullYear();
         const errorMessage = document.getElementById('car-year-error');
         if (year < 1999 || year > currentYear) {
             errorMessage.textContent = `L'année doit être entre 1999 et ${currentYear}.`;
+            carYearInput.classList.add("error-outline");
             return false;
         }
+        carYearInput.classList.remove("error-outline");
         errorMessage.textContent = '';
         return true;
     }
@@ -59,12 +66,18 @@ document.addEventListener('DOMContentLoaded', function () {
     // Fonction de validation pour le kilométrage
     function validateMileage() {
         const errorMessage = document.getElementById('mileage-error');
-        if (mileageInput.value < 0) {
+        nbrMileage = +mileageInput.value  // le + pour convertir le string en numbre  
+        if (nbrMileage <= 0) {
             errorMessage.textContent = "Le kilométrage doit être un nombre positif.";
+            mileageInput.classList.add("error-outline");
             return false;
-        } else { (mileageInput.value > 50000 )
+        }
+        if (nbrMileage > 50000 ){ 
             errorMessage.textContent = "Le kilométrage doit être inferieur a 50000km.";
-        }    return false;
+            mileageInput.classList.add("error-outline");
+          return false; 
+        } 
+          mileageInput.classList.remove("error-outline");
         errorMessage.textContent = '';
         return true;
     }
@@ -181,6 +194,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Ajouter des écouteurs d'événements sur chaque champ
     birthdateInput.addEventListener('change', validateBirthdate);
     carValueInput.addEventListener('input', validateCarValue);
-    carYearInput.addEventListener('input', validateCarYear);
+    carYearInput.addEventListener('change', validateCarYear);
     mileageInput.addEventListener('input', validateMileage);
 });
