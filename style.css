@@ -3,6 +3,7 @@ body {
     background-color: #f4f4f4;
     margin:  0;
     padding: 0;
+    font-family: "Montserrat", sans-serif;
 }
 
 .container {
@@ -12,24 +13,31 @@ body {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    min-width: 500px;
 }
 
 h1, h2 {
     text-align: center;
     color: #333;
 }
-
+form{
+    display: flex;
+    flex-direction: column;
+}
 label {
     display: block;
-    margin: 10px 5px;
+    margin: 15px 5px 5px 5px;
 }
 
 input, select {
-    width: 100%;
+    font-family: "Montserrat", sans-serif;
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 3px;
     border: 1px solid #ccc;
+    font-size: 16px;
 }
 
 button {
@@ -41,10 +49,14 @@ button {
     border: none;
     border-radius: 3px;
     cursor: pointer;
+    font-size: 1rem;
+    font-weight: 550;
+    height: 43px;
+    margin-top: 15px;
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: rgb(40 167 69 / 81%);
 }
 
 #result {
@@ -63,25 +75,31 @@ button:hover {
 
     display: none;
 }
+.error-outline{
+    border-color: red;
+    color: red;
+    outline: red  auto 1px;
+}
+
 .error-message {
     color: red;
-    font-size: 12px;
-    margin-top: 5px;
+    font-size: 14px;
+    margin-top: -12px;
 }
 .car-value-error{
     color: red;
-    font-size: 12px;
-    margin-top: 5px;
+    font-size: 14px;
+    margin-top: -12px;
 }
 .car-year-error{
     color: red;
-    font-size: 12px;
-    margin-top: 5px;
+    font-size: 14px;
+    margin-top: -12px;
 }
 .mileage-error{
     color: red;
-    font-size: 12px;
-    margin-top: 5px;
+    font-size: 14px;
+    margin-top: -12px;
 }
 
 #result.error {
